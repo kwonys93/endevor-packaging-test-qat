@@ -40,17 +40,12 @@ gulp.task("approve-package", function (callback) {
   simpleCommand(command, "command-archive/approve-package", callback);
 });
 
-gulp.task("copy-load", function (callback) {
+gulp.task("execute-package", function (callback) {
   var command =
-    'zowe file-master-plus copy data-set "' +
-    config.devLOADLIB +
-    '" "' +
-    config.testLOADLIB +
-    '" -m ' +
-    config.testElement;
+    "zowe endevor execute package " + config.packageName + " -i ENDEVOR";
   //var command = 'zowe zos-extended-files copy data-set "KWOYO01.JCL(A)" "KWOYO01.DUMMY.JCL(A)" --replace';
 
-  simpleCommand(command, "command-archive/copy-load", callback);
+  simpleCommand(command, "command-archive/execute-package", callback);
 });
 
 gulp.task("copy-dbrm", function (callback) {

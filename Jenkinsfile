@@ -26,8 +26,9 @@ pipeline {
     stages {
         stage('create-package') {
             steps {
+               sh 'gulp --tasks'
                 echo 'Creating package in Endevor..'
-                sh 'gulp create-package'
+            //    sh 'gulp create-package'
             }
         }
         stage('cast-package') {
