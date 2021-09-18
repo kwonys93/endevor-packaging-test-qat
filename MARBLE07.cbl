@@ -9,7 +9,7 @@
       *
       * CREate
       *  Invoked via MB01 CRE <COLOR> <INVENTORY> <COST>
-      *
+      *v
       *  Where:
       *   <COLOR>     A new marble color not defined in EVENT.MARBLE
       *   <INVENTORY> An integer representing the inventory count
