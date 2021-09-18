@@ -28,6 +28,7 @@ pipeline {
             steps {
                sh 'gulp --tasks'
                 echo 'Creating package in Endevor..'
+                sleep 2
             //    sh 'gulp create-package'
             }
         }
@@ -35,12 +36,14 @@ pipeline {
             steps {
                 echo 'casting cobol..'
                 sh 'gulp cast-package'
+                sleep 3
             }
         }
         stage('approve-package') {
             steps {
                 echo 'approving the package..'
                 sh 'gulp approve-package'
+                sleep 3
             }
         }
         stage('execute-package') {
