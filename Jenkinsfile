@@ -29,7 +29,7 @@ pipeline {
                sh 'gulp --tasks'
                 echo 'Creating package in Endevor..'
                 sleep 2
-            //    sh 'gulp create-package'
+                sh 'gulp create-package'
             }
         }
         stage('cast-package') {
