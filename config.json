@@ -4,8 +4,8 @@
   "sqlJCL": "KWOYO01.MARBLES.JCL(MARBDB7)",
   "cicsConsole": "KWOYO01",
   "cicsPort": 6000,
-  "packageName": "YSKPKG6"
-  "sclName": "scl1.txt"
+  "packageName": "YSKPKG6",
+  "sclName": "scl1.txt",
   "cicsProgram": "MARBLE07",
   "cicsProtocol": "http",
   "cicsRegion": "CICS00A1",
