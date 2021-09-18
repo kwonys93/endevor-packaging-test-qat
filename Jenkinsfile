@@ -27,18 +27,18 @@ pipeline {
         stage('create-package') {
             steps {
                 echo 'Creating package in Endevor..'
-                sh 'gulp create-package'
+       //         sh 'gulp create-package'
             }
         }
-        stage('Build-cobol') {
+        stage('cast-package') {
             steps {
-                echo 'Building cobol..'
-          //      sh 'gulp build-cobol'
+                echo 'casting cobol..'
+                sh 'gulp cast-package'
             }
         }
-        stage('Build-lnk') {
+        stage('approve-package') {
             steps {
-                echo 'Building module to CICS..'
+                echo 'approving the package..'
          //       sh 'gulp build-lnk'
             }
         }
