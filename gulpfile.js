@@ -21,27 +21,23 @@ gulp.task("create-package", function (callback) {
     "zowe  endevor create package " + config.packageName + " -d moveFAPCOB06 --ff " + config.sclName + " -i ENDEVOR --promotion true"
   //    "zowe  endevor update element MARBLE07 --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cbl -i ENDEVOR --comment ysk1 --ccid ysk1";
 
-  simpleCommand(command, "command-archive/update-cobol", callback);
+  simpleCommand(command, "command-archive/create-package", callback);
 });
 
-gulp.task("build-cobol", function (callback) {
+gulp.task("cast-package", function (callback) {
   //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type COBOL --override-signout --cb -i ENDEVOR --comment test223 --ccid abcd";
+    "zowe endevor cast package " + config.packageName + " --fdt 2021-01-01T00:00 --tdt 2021-12-31T12:00 -i ENDEVOR ";
 
-  simpleCommand(command, "command-archive/build-cobol", callback);
+  simpleCommand(command, "command-archive/cast-package", callback);
 });
 
-//    var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
-//var command = "zowe  endevor update element FINARP05 --env SMPLTEST --sys --sub ACCTPAY --typ COBOL --ff MARBLE07.cbl -i ENDEVOR --comment test9 --ccid abcd9";
-//var  command = "zowe endevor generate element FAPCOB05 --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --type COBOL --cb -i ENDEVOR --comment test223 --ccid abcd";
-//     var command = "zowe  endevor list elements -i ENDEVOR --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --typ COBOL" ;
 
-gulp.task("build-lnk", function (callback) {
+gulp.task("approve-package", function (callback) {
   //  var command = "zowe endevor generate element " + config.testElement + " --type LNK --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type LNK --cb -i ENDEVOR --comment test223 --ccid abcd --os";
-  simpleCommand(command, "command-archive/build-lnk", callback);
+    "zowe endevor approve package " + config.packageName + " -i ENDEVOR";
+  simpleCommand(command, "command-archive/approve-package", callback);
 });
 
 gulp.task("copy-load", function (callback) {

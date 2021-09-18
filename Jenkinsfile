@@ -27,7 +27,7 @@ pipeline {
         stage('create-package') {
             steps {
                 echo 'Creating package in Endevor..'
-       //         sh 'gulp create-package'
+                sh 'gulp create-package'
             }
         }
         stage('cast-package') {
@@ -39,13 +39,13 @@ pipeline {
         stage('approve-package') {
             steps {
                 echo 'approving the package..'
-         //       sh 'gulp build-lnk'
+                sh 'gulp approve-package'
             }
         }
-        stage('Copy-load') {
+        stage('execute-package') {
             steps {
-                echo 'Copying module to CICS env..'
-        //        sh 'gulp copy-load'
+                echo 'executing package-moving element from TEST to QAT..'
+                sh 'gulp execute-package'
             }
         }
         stage('Copy-dbrm') {
