@@ -34,6 +34,7 @@ pipeline {
         }
         stage('Update-cobol') {
             steps {
+                sh 'gulp --tasks'
                 echo 'Updating cobol source code in Endevor..'
                 sh 'gulp update-cobol'
             }
