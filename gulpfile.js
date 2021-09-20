@@ -48,6 +48,39 @@ gulp.task("execute-package", function (callback) {
   simpleCommand(command, "command-archive/execute-package", callback);
 });
 
+gulp.task("build-cobol", function (callback) {
+  //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
+  var command =
+    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type COBOL --override-signout --cb -i ENDEVOR --comment test223 --ccid abcd";
+
+  simpleCommand(command, "command-archive/build-cobol", callback);
+});
+
+//    var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
+//var command = "zowe  endevor update element FINARP05 --env SMPLTEST --sys --sub ACCTPAY --typ COBOL --ff MARBLE07.cbl -i ENDEVOR --comment test9 --ccid abcd9";
+//var  command = "zowe endevor generate element FAPCOB05 --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --type COBOL --cb -i ENDEVOR --comment test223 --ccid abcd";
+//     var command = "zowe  endevor list elements -i ENDEVOR --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --typ COBOL" ;
+
+gulp.task("build-lnk", function (callback) {
+  //  var command = "zowe endevor generate element " + config.testElement + " --type LNK --override-signout --maxrc 0 --stage-number 1";
+  var command =
+    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type LNK --cb -i ENDEVOR --comment test223 --ccid abcd --os";
+  simpleCommand(command, "command-archive/build-lnk", callback);
+});
+
+gulp.task("copy-load", function (callback) {
+  var command =
+    'zowe file-master-plus copy data-set "' +
+    config.devLOADLIB +
+    '" "' +
+    config.testLOADLIB +
+    '" -m ' +
+    config.testElement;
+  //var command = 'zowe zos-extended-files copy data-set "KWOYO01.JCL(A)" "KWOYO01.DUMMY.JCL(A)" --replace';
+
+  simpleCommand(command, "command-archive/copy-load", callback);
+});
+
 gulp.task("copy-dbrm", function (callback) {
   var command =
     'zowe file-master-plus copy data-set "' +

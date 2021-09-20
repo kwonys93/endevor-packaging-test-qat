@@ -32,24 +32,28 @@ pipeline {
                 sleep 2
             }
         }
-        stage('cast-package') {
+        stage('Update-cobol') {
             steps {
-                echo 'casting cobol..'
-                sh 'gulp cast-package'
-                sleep 2
+                echo 'Updating cobol source code in Endevor..'
+                sh 'gulp update-cobol'
             }
         }
-        stage('approve-package') {
+        stage('Build-cobol') {
             steps {
-                echo 'approving the package..'
-                sh 'gulp approve-package'
-                sleep 2
+                echo 'Building cobol..'
+                sh 'gulp build-cobol'
             }
         }
-        stage('execute-package') {
+        stage('Build-lnk') {
             steps {
-                echo 'executing package-moving element from TEST to QAT..'
-                sh 'gulp execute-package'
+                echo 'Building module to CICS..'
+                sh 'gulp build-lnk'
+            }
+        }
+        stage('Copy-load') {
+            steps {
+                echo 'Copying module to CICS env..'
+                sh 'gulp copy-load'
             }
         }
         stage('Copy-dbrm') {
@@ -80,6 +84,26 @@ pipeline {
             steps {
                 echo 'verifying data for the test result..'
         //        sh 'gulp verify-data'
+            }
+        }
+        stage('cast-package') {
+            steps {
+                echo 'casting cobol..'
+                sh 'gulp cast-package'
+                sleep 2
+            }
+        }
+        stage('approve-package') {
+            steps {
+                echo 'approving the package..'
+                sh 'gulp approve-package'
+                sleep 2
+            }
+        }
+        stage('execute-package') {
+            steps {
+                echo 'executing package-moving element from TEST to QAT..'
+                sh 'gulp execute-package'
             }
         }
         /*
