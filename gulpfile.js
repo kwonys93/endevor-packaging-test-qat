@@ -51,7 +51,7 @@ gulp.task("execute-package", function (callback) {
 gulp.task("update-cobol", function (callback) {
   //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe  endevor update element MARBLE07 --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff COBOL/MARBLE07.cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
+    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE10.cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
   //    "zowe  endevor update element MARBLE07 --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cbl -i ENDEVOR --comment ysk1 --ccid ysk1";
 
   simpleCommand(command, "command-archive/update-cobol", callback);
@@ -60,7 +60,7 @@ gulp.task("update-cobol", function (callback) {
 gulp.task("build-cobol", function (callback) {
   //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type COBOL --override-signout --cb -i ENDEVOR --comment test223 --ccid abcd";
+    "zowe endevor generate element " + config.cicsProgram + " --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type COBOL --override-signout --cb -i ENDEVOR --comment test223 --ccid abcd";
 
   simpleCommand(command, "command-archive/build-cobol", callback);
 });
@@ -73,7 +73,7 @@ gulp.task("build-cobol", function (callback) {
 gulp.task("build-lnk", function (callback) {
   //  var command = "zowe endevor generate element " + config.testElement + " --type LNK --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe endevor generate element MARBLE07 --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type LNK --cb -i ENDEVOR --comment test223 --ccid abcd --os";
+    "zowe endevor generate element " + config.cicsProgram + " --env SMPLTEST --sn 1 --sys MARBLES --sub MARBLES --type LNK --cb -i ENDEVOR --comment test223 --ccid abcd --os";
   simpleCommand(command, "command-archive/build-lnk", callback);
 });
 

@@ -59,7 +59,7 @@
       *
       * ===============================================================
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. MARBLE07.
+       PROGRAM-ID. MARBLE10.
        ENVIRONMENT DIVISION.
        DATA DIVISION.
       * ===============================================================
