@@ -24,14 +24,6 @@ pipeline {
 
     }
     stages {
-        stage('create-package') {
-            steps {
-               sh 'gulp --tasks'
-                echo 'Creating package in Endevor..'
-               sh 'gulp create-package'
-                sleep 2
-            }
-        }
         stage('Update-cobol') {
             steps {
                 sh 'gulp --tasks'
@@ -85,6 +77,14 @@ pipeline {
             steps {
                 echo 'verifying data for the test result..'
         //        sh 'gulp verify-data'
+            }
+        }
+        stage('create-package') {
+            steps {
+               sh 'gulp --tasks'
+                echo 'Creating package in Endevor..'
+               sh 'gulp create-package'
+                sleep 2
             }
         }
         stage('cast-package') {
