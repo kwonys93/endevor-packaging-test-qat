@@ -52,19 +52,19 @@ pipeline {
         stage('Copy-dbrm') {
             steps {
                 echo 'Copying dbrm to db2 env for db2 bind..'
-      //          sh 'gulp copy-dbrm'
+                sh 'gulp copy-dbrm'
             }
         }
         stage('CICS-refresh') {
             steps {
                 echo 'New copying module in CICS..'
-       //         sh 'gulp cics-refresh'
+                sh 'gulp cics-refresh'
             }
         }
         stage('Bind-n-grant') {
             steps {
                 echo 'Binding db2 plan and granting..'
-      //          sh 'gulp bind-n-grant'
+                sh 'gulp bind-n-grant'
             }
         }
         stage('Test-tran') {
