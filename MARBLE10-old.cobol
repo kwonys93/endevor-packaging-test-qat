@@ -1,15 +1,15 @@
       * ===============================================================
-      * The user invokes this transaction (called MB10) via:
-      *   MB10 <VERB>
-      *
+      * The user invokes this transaction (called MB01) via:
+      *   MB01 <VERB>
+      * Comment
       * Where:
       *   <VERB> = CRE|UPD|DEL
       *
       * Verb Functions:
       *
       * CREate
-      *  Invoked via MB10 CRE <COLOR> <INVENTORY> <COST>
-      *
+      *  Invoked via MB01 CRE <COLOR> <INVENTORY> <COST>
+      *v
       *  Where:
       *   <COLOR>     A new marble color not defined in EVENT.MARBLE
       *   <INVENTORY> An integer representing the inventory count
@@ -21,10 +21,10 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 CRE BROWN 10 4
+      *   MB01 CRE RED 10 4
       *
       * UPDate
-      *  Invoked via MB10 UPD <COLOR> <INVENTORY> <COST>
+      *  Invoked via MB01 UPD <COLOR> <INVENTORY> <COST>
       *
       *  Where:
       *   <COLOR>     A marble color defined in EVENT.MARBLE
@@ -36,10 +36,10 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 UPD BROWN 1 5
+      *   MB01 UPD RED 1 5
       *
       * DELete
-      *  Invoked via MB10 DEL <COLOR>
+      *  Invoked via MB01 DEL <COLOR>
       *
       *  Where:
       *   <COLOR>     A marble color defined in EVENT.MARBLE
@@ -49,7 +49,7 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 DEL BROWN
+      *   MB01 DEL RED
       *
       * Other Error Conditions:
       *   MARB003E (invalid operation was requested)
@@ -133,7 +133,7 @@
            ) END-EXEC.
            EXEC SQL INCLUDE SQLCA END-EXEC.
       * ===============================================================
-      * MB10 transaction
+      * MB01 transaction
       * ===============================================================
        PROCEDURE DIVISION.
       *
@@ -219,9 +219,9 @@
             MOVE 74 TO WS-MSG-LENGTH.
             MOVE SPACES TO WS-INPUT.
             MOVE SPACES TO WS-OUTPUT.
-      * ===============================================================
+      * ==============================================================
       * Get transaction input
-      * ===============================================================
+      * =============================================================
        GET-TRANS-INPUT.
       *
       *     Receive input from user
@@ -231,15 +231,16 @@
                         LENGTH(WS-MSG-LENGTH)
             END-EXEC.
       * ===============================================================
-      * Parse the transaction input
+      * Parse the transaction input : ysk v1.0
+      * ===============================================================
       * ===============================================================
        PARSE-CICS-INPUT.
             UNSTRING WS-CICS-INPUT DELIMITED BY SPACE
                 INTO WS-INPUT-TRAN-ID,
                      WS-INPUT-VERB,
-                     WS-INPUT-COLOR,
+      * <--error    WS-INPUT-COLOR,
                      WS-INPUT-INV,
-      * <-- remove   WS-INPUT-COST,
+                     WS-INPUT-COST,
                      WS-INPUT-TRAILER
             END-UNSTRING.
       * ===============================================================

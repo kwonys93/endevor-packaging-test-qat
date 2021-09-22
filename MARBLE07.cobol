@@ -1,6 +1,6 @@
       * ===============================================================
-      * The user invokes this transaction (called MB10) via:
-      *   MB10 <VERB>
+      * The user invokes this transaction (called MB07) via:
+      *   MB07 <VERB>
       *
       * Where:
       *   <VERB> = CRE|UPD|DEL
@@ -8,7 +8,7 @@
       * Verb Functions:
       *
       * CREate
-      *  Invoked via MB10 CRE <COLOR> <INVENTORY> <COST>
+      *  Invoked via MB07 CRE <COLOR> <INVENTORY> <COST>
       *
       *  Where:
       *   <COLOR>     A new marble color not defined in EVENT.MARBLE
@@ -21,10 +21,10 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 CRE BROWN 10 4
+      *   MB07 CRE VIOLET 10 4
       *
       * UPDate
-      *  Invoked via MB10 UPD <COLOR> <INVENTORY> <COST>
+      *  Invoked via MB07 UPD <COLOR> <INVENTORY> <COST>
       *
       *  Where:
       *   <COLOR>     A marble color defined in EVENT.MARBLE
@@ -36,10 +36,10 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 UPD BROWN 1 5
+      *   MB07 UPD VIOLET 1 5
       *
       * DELete
-      *  Invoked via MB10 DEL <COLOR>
+      *  Invoked via MB07 DEL <COLOR>
       *
       *  Where:
       *   <COLOR>     A marble color defined in EVENT.MARBLE
@@ -49,7 +49,7 @@
       *   MARB005E (color is reserved for another user
       *
       *  Example:
-      *   MB10 DEL BROWN
+      *   MB07 DEL VIOLET
       *
       * Other Error Conditions:
       *   MARB003E (invalid operation was requested)
@@ -59,7 +59,7 @@
       *
       * ===============================================================
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. MARBLE10.
+       PROGRAM-ID. MARBLE07.
        ENVIRONMENT DIVISION.
        DATA DIVISION.
       * ===============================================================
@@ -133,7 +133,7 @@
            ) END-EXEC.
            EXEC SQL INCLUDE SQLCA END-EXEC.
       * ===============================================================
-      * MB10 transaction
+      * MB07 transaction
       * ===============================================================
        PROCEDURE DIVISION.
       *
