@@ -101,7 +101,7 @@ gulp.task("copy-dbrm", function (callback) {
 
 gulp.task("cics-refresh", function (callback) {
   // var command = 'zowe cics refresh program "' + config.cicsProgram + '"';
-  var command = "zowe cics refresh program " + config.cicsProgram + " --region-name " + config.cicsRegion + "--cics-profile " + config.cicsProfile;
+  var command = "zowe cics refresh program " + config.cicsProgram + " --region-name " + config.cicsRegion + " --cics-profile " + config.cicsProfile;
 
   simpleCommand(command, "command-archive/cics-refresh", callback);
 });
