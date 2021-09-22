@@ -51,7 +51,7 @@ gulp.task("execute-package", function (callback) {
 gulp.task("update-cobol", function (callback) {
   //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE10.cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
+    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff " + config.cicsProgram + ".cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
   //    "zowe  endevor update element MARBLE07 --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cbl -i ENDEVOR --comment ysk1 --ccid ysk1";
 
   simpleCommand(command, "command-archive/update-cobol", callback);
@@ -65,10 +65,6 @@ gulp.task("build-cobol", function (callback) {
   simpleCommand(command, "command-archive/build-cobol", callback);
 });
 
-//    var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
-//var command = "zowe  endevor update element FINARP05 --env SMPLTEST --sys --sub ACCTPAY --typ COBOL --ff MARBLE07.cbl -i ENDEVOR --comment test9 --ccid abcd9";
-//var  command = "zowe endevor generate element FAPCOB05 --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --type COBOL --cb -i ENDEVOR --comment test223 --ccid abcd";
-//     var command = "zowe  endevor list elements -i ENDEVOR --env SMPLTEST --sn 1 --sys FINANCE --sub ACCTPAY --typ COBOL" ;
 
 gulp.task("build-lnk", function (callback) {
   //  var command = "zowe endevor generate element " + config.testElement + " --type LNK --override-signout --maxrc 0 --stage-number 1";
