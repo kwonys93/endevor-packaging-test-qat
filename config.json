@@ -5,7 +5,7 @@
   "cicsConsole": "KWOYO01",
   "cicsPort": 6000,
   "packageName": "YSKPKG6",
-  "sclName": "scl10.txt",
+  "sclName": "scl07.txt",
   "cicsProgram": "MARBLE7",
   "cicsProtocol": "http",
   "cicsRegion": "CICSDEV1",
@@ -26,7 +26,7 @@
   "fmpRejectUnauthorized": false,
   "marbleColor": "RED",
   "testDBRMLIB": "KWOYO01.MARBLES.T12M.DBRMLIB",
-  "testElement": "MARBLE10",
+  "testElement": "MARBLE07",
   "testLOADLIB": "CAAPJMF.CICS00.CICSDEV1.LOADLIB",
   "zosmfPort": 443,
   "zosmfRejectUnauthorized": false
