@@ -79,31 +79,7 @@ pipeline {
                 sh 'gulp verify-data'
             }
         }
-        stage('create-package') {
-            steps {
-               sh 'gulp --tasks'
-                echo 'Creating package in Endevor..'
-               sh 'gulp create-package'
-            }
-        }
-        stage('cast-package') {
-            steps {
-                echo 'casting cobol..'
-                sh 'gulp cast-package'
-            }
-        }
-        stage('approve-package') {
-            steps {
-                echo 'approving the package..'
-                sh 'gulp approve-package'
-            }
-        }
-        stage('execute-package') {
-            steps {
-                echo 'executing package-moving element from TEST to QAT..'
-                sh 'gulp execute-package'
-            }
-        }
+      
         /*
         stage('Test-validation') {
             steps {
