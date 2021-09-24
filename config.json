@@ -1,7 +1,7 @@
 {
-  "bindGrantJCL": "KWOYO01.MARBLES.JCL(MARBIN7)",
-  "testTranJCL": "KWOYO01.MARBLES.JCL(TESTTRA7)",
-  "sqlJCL": "KWOYO01.MARBLES.JCL(MARBDB7)",
+  "bindGrantJCL": "KWOYO01.MARBLES.JCL(TSTBIND7)",
+  "testTranJCL": "KWOYO01.MARBLES.JCL(TSTTEST7)",
+  "sqlJCL": "KWOYO01.MARBLES.JCL(TSTVERI7)",
   "cicsConsole": "KWOYO01",
   "cicsPort": 6000,
   "packageName": "YSKPKG7",
