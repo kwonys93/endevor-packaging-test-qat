@@ -51,8 +51,8 @@ gulp.task("execute-package", function (callback) {
 gulp.task("update-cobol", function (callback) {
   //   var command = "zowe endevor generate element " + config.testElement + " --type COBOL --override-signout --maxrc 0 --stage-number 1";
   var command =
-    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
-  //    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff " + config.cicsProgram + ".cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
+    //  "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
+    "zowe  endevor update element " + config.cicsProgram + " --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff " + config.cicsProgram + ".cobol -i ENDEVOR --comment ysk1 --ccid ysk1";
   //    "zowe  endevor update element MARBLE07 --env SMPLTEST --sys MARBLES --sub MARBLES --typ COBOL --override-signout --ff MARBLE07.cbl -i ENDEVOR --comment ysk1 --ccid ysk1";
 
   simpleCommand(command, "command-archive/update-cobol", callback);
