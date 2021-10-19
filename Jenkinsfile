@@ -70,7 +70,7 @@ pipeline {
         stage('Test-tran') {
             steps {
                 echo 'Testing transaction..'
-      //          sh 'gulp test-tran'
+                sh 'gulp test-tran'
             }
         }
          stage('Verify-data') {
