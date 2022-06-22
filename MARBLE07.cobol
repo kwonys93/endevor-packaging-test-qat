@@ -19,7 +19,7 @@
       *   MARB002E (color already exists in inventory)
       *   MARB004E (color is not available - not found in EVENT.COLOR)
       *   MARB005E (color is reserved for another user
-      * ysk
+      * ysk111
       *  Example:
       *   MB07 CRE VIOLET 10 4
       *
